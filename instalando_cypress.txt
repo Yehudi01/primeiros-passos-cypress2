@@ -1,0 +1,30 @@
+----------------------------------------------------------------------------------------------------
+ISTALANDO O CYPRESS
+1-npm init
+2-npm install cypress --save-dev
+DICA: "code ." ja ira abrir o vscode para vc!
+----------------------------------------------------------------------------------------------------
+INICIALIZANDO/ABRINDO O CYPRESS
+1-npx cypress open
+----------------------------------------------------------------------------------------------------
+COMANDOS NO CYPRESS
+.visit
+.get
+.type
+.location
+.should
+.contains
+.skip
+----------------------------------------------------------------------------------------------------
+COMITANDO NO GITHUB
+Dentro da pasta do projeto:
+1-git init
+2-git remote add origin https://github.com/SeuUsuario/SeuRepositorio.git
+3-git branch -M main
+    git status(para ver o que nao foi comitado)
+4-git add .(para salvar tudo)
+5-git commit -m""(mensagem rapida e direta)
+6-git push -u origin main
+----------------------------------------------------------------------------------------------------
+
+
