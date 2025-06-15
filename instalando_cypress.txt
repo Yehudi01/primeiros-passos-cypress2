@@ -15,6 +15,9 @@ COMANDOS NO CYPRESS
 .should
 .contains
 .skip
+.only
+.click
+.clear
 ----------------------------------------------------------------------------------------------------
 COMITANDO NO GITHUB
 Dentro da pasta do projeto:
