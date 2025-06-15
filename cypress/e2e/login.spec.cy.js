@@ -1,36 +1,28 @@
 describe('Orange HRM Test', () => {
 
-      const userNameInput = "[name='username']";
-      const passwordInput = "[name='password']";
-      const loginButton = "[type='submit']";
-      const dashBoardHeader = ".oxd-topbar-header-breadcrumb-module";
-      const alertMessage = "[role='alert']"
+  const selectorsList = {
+
+      userNameInput :"[name='username']",
+      passwordInput : "[name='password']",
+      loginButton : "[type='submit']",
+      dashBoardHeader : ".oxd-topbar-header-breadcrumb-module",
+      alertMessage : "[role='alert']"
+    }
 
   it('Login Success', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.get("[name='username']").type('Admin');
-    cy.get("[name='password']").type('admin123');
-    cy.get("[type='submit']").click();
+    cy.get(selectorsList.userNameInput).type('Admin');
+    cy.get(selectorsList.passwordInput).type('admin123');
+    cy.get(selectorsList.loginButton).click();
     cy.location('pathname').should('eq', '/web/index.php/dashboard/index');
-    cy.get(".oxd-topbar-header-breadcrumb-module").contains('Dashboard');
+    cy.get(selectorsList.dashBoardHeader).contains('Dashboard');
   })
-})
-
-describe('Login', () => {
-
-  SelectorList : {
-      const userNameInput = "[name='username']";
-      const passwordInput = "[name='password']";
-      const loginButton = "[type='submit']";
-      const dashBoardHeader = ".oxd-topbar-header-breadcrumb-module";
-      const alertMessage = "[role='alert']"
-    }
 
   it('Login Fail', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.get("[name='username']").type('Admin');
-    cy.get("[name='password']").type('admin');
-    cy.get("[type='submit']").click();
-    cy.get("[role='alert']");
+    cy.get(selectorsList.userNameInput).type('Admin');
+    cy.get(selectorsList.passwordInput).type('admin');
+    cy.get(selectorsList.loginButton).click();
+    cy.get(selectorsList.alertMessage);
   })
 })
