@@ -20,6 +20,7 @@ describe('Orange HRM Test', () => {
       dateCloseButton:'.--close',
       nationalityField: ".oxd-select-text-input",
       nationalityFieldBrazilian:':nth-child(27) > span',
+      maritalStatusField:'.oxd-select-dropdown > :nth-child(2)',
       buttonSubmitSave: "[type='submit']",
       confirmationMessage: "[aria-live='assertive']"
     }
@@ -43,6 +44,8 @@ describe('Orange HRM Test', () => {
     cy.get(selectorsList.dateCloseButton).click();
     cy.get(selectorsList.nationalityField).eq(0).click();
     cy.get(selectorsList.nationalityFieldBrazilian).click();
+    cy.get(selectorsList.nationalityField).eq(1).click();
+    cy.get(selectorsList.maritalStatusField).click();
     cy.get(selectorsList.dateField).eq(1).clear().type("2000-20-08");
     cy.get(selectorsList.dateCloseButton).click();
     cy.get(selectorsList.buttonSubmitSave).eq(0).click();
