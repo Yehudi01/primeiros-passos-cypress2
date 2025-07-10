@@ -4,22 +4,20 @@ import dashboardPage from '../page/dashboardPage'
 import manuPage from '../page/menuPage';
 import myInfoPage from '../page/myInfoPage';
 
+const Chance = require('chance');
 
+const chance = new Chance();
 const loginPage = new LoginPage();    
 const dashboard = new dashboardPage();
-const myInfo = new myInfoPage();
 const menu = new manuPage();
+const myInfo = new myInfoPage();
 
 describe('Orange HRM Test', () => {
+  it('User Info Update - Success', () => {
 
-  const selectorsList = {
-
-    }
-
-  it.only('User Info Update - Success', () => {
     loginPage.accessLoginPage();
     loginPage.enterUserLogin(userData.userSuccess.userName, userData.userSuccess.password);
-    loginPage.clickLoginButton({force: true});
+    loginPage.clickLoginButton();
 
     dashboard.locationDashboard();
     dashboard.dashboardPage();
@@ -27,26 +25,10 @@ describe('Orange HRM Test', () => {
     menu.clickMyInfoButton()
 
     myInfo.checkMyInfoPage();
-    myInfo.fillEditEmployeeForm();
+    myInfo.fillEditEmployeeName(chance.first(), 'de', chance.last());
+    myInfo.fillEditEmployeeInformation('123456', '654321', '123456789', '2000-08-20');
+    myInfo.fillEditEmployeeNationality('2025-02-25');
+    myInfo.buttonSubmitSave();
 
-    /* 
-  
-    cy.get(selectorsList.dateCloseButton).click();
-    cy.get(selectorsList.nationalityField).eq(0).click();
-    cy.get(selectorsList.nationalityFieldBrazilian).click();
-    cy.get(selectorsList.nationalityField).eq(1).click();
-    cy.get(selectorsList.maritalStatusField).click();
-    cy.get(selectorsList.dateField).eq(1).clear().type("2000-20-08");
-    cy.get(selectorsList.dateCloseButton).click();
-    cy.get(selectorsList.buttonSubmitSave).eq(0).click({force: true});
-    cy.get(selectorsList.confirmationMessage);  */
-  })
-
-  it('Login Fail', () => {
-    cy.visit('auth/login')
-    cy.get(selectorsList.userNameInput).type(userData.userFail.userName);
-    cy.get(selectorsList.passwordInput).type(userData.userFail.password);
-    cy.get(selectorsList.loginButton).click();
-    cy.get(selectorsList.alertMessage);
   })
 })

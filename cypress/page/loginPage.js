@@ -20,5 +20,9 @@ class LoginPage {
     clickLoginButton() {
         cy.get(this.selectorList().loginButton).click();
     }
+    alertMessageLogin() {
+        cy.get(this.selectorList().alertMessage).should('contain', 'Invalid credentials');;
+    }
+
 }
 export default LoginPage;
